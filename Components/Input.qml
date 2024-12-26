@@ -100,7 +100,7 @@ Column {
                     font.pointSize: root.font.pointSize * 0.8
                     font.capitalization: Font.AllLowercase
                     font.family: root.font.family
-                    color: config.DropdownTextColor
+                    color: config.BasicTextColor
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -120,7 +120,7 @@ Column {
                     icon.height: parent.height * 0.25
                     icon.width: parent.height * 0.25
                     enabled: false
-                    icon.color: config.UserIconColor
+                    icon.color: config.BasicTextColor
                     icon.source: Qt.resolvedUrl("../Assets/User.svg")
                     
                     background: Rectangle {
@@ -168,7 +168,7 @@ Column {
                     when: selectUser.down
                     PropertyChanges {
                         target: usernameIcon
-                        icon.color: Qt.lighter(config.HoverUserIconColor, 1.1)
+                        icon.color: Qt.lighter(config.BasicTextColor, 1.1)
                     }
                 },
                 State {
@@ -176,7 +176,7 @@ Column {
                     when: selectUser.hovered
                     PropertyChanges {
                         target: usernameIcon
-                        icon.color: Qt.lighter(config.HoverUserIconColor, 1.2)
+                        icon.color: Qt.lighter(config.BasicTextColor, 1.2)
                     }
                 },
                 State {
@@ -184,7 +184,7 @@ Column {
                     when: selectUser.activeFocus
                     PropertyChanges {
                         target: usernameIcon
-                        icon.color: config.HoverUserIconColor
+                        icon.color: config.BasicTextColor
                     }
                 }
             ]
@@ -203,14 +203,14 @@ Column {
         TextField {
             id: username
             text: config.ForceLastUser == "true" ? selectUser.currentText : null
-            color: config.LoginFieldTextColor
+            color: config.BasicTextColor
             font.bold: true
             font.capitalization: config.AllowUppercaseLettersInUsernames == "false" ? Font.AllLowercase : Font.MixedCase
             anchors.centerIn: parent
             height: root.font.pointSize * 3
             width: parent.width
             placeholderText: config.TranslatePlaceholderUsername || textConstants.userName
-            placeholderTextColor: config.PlacholderTextColor
+            placeholderTextColor: config.PlaceholderTextColor
             selectByMouse: true
             horizontalAlignment: TextInput.AlignHCenter
             renderType: Text.QtRendering
@@ -219,8 +219,8 @@ Column {
                     selectAll()
             }
             background: Rectangle {
-                color: config.LoginFieldBackgroundColor
-                opacity: 0.2
+                color: config.TextFieldBackgroundColor
+                opacity: 0.3
                 border.color: "transparent"
                 border.width: parent.activeFocus ? 2 : 1
                 radius: config.RoundCorners || 0
@@ -236,10 +236,6 @@ Column {
                     PropertyChanges {
                         target: username.background
                         border.color: config.HighlightBorderColor
-                    }
-                    PropertyChanges {
-                        target: username
-                        color: Qt.lighter(config.LoginFieldTextColor, 1.15)
                     }
                 }
             ]
@@ -263,7 +259,7 @@ Column {
             anchors.leftMargin: selectUser.height * 0
             icon.height: parent.height * 0.25
             icon.width: parent.height * 0.25
-            icon.color: config.PasswordIconColor
+            icon.color: config.BasicTextColor
             icon.source: Qt.resolvedUrl("../Assets/Password2.svg")
 
             background: Rectangle {
@@ -278,7 +274,7 @@ Column {
                     PropertyChanges {
                         target: showPassword
                         icon.source: Qt.resolvedUrl("../Assets/Password.svg")
-                        icon.color: config.HoverPasswordIconColor
+                        icon.color: config.BasicTextColor
                     }
                 },
                 State {
@@ -287,7 +283,7 @@ Column {
                     PropertyChanges {
                         target: showPassword
                         icon.source: Qt.resolvedUrl("../Assets/Password.svg")
-                        icon.color: config.HoverPasswordIconColor
+                        icon.color: config.BasicTextColor
                     }
                 },
                 State {
@@ -304,7 +300,7 @@ Column {
                     PropertyChanges {
                         target: showPassword
                         icon.source: Qt.resolvedUrl("../Assets/Password2.svg")
-                        icon.color: config.HoverPasswordIconColor
+                        icon.color: config.BasicTextColor
                     }
                 },
                 State {
@@ -313,7 +309,7 @@ Column {
                     PropertyChanges {
                         target: showPassword
                         icon.source: Qt.resolvedUrl("../Assets/Password2.svg")
-                        icon.color: config.HoverPasswordIconColor
+                        icon.color: config.BasicTextColor
                     }
                 }
             ]
@@ -328,7 +324,7 @@ Column {
         TextField {
             id: password
             anchors.centerIn: parent
-            color: config.PasswordFieldTextColor
+            color: config.BasicTextColor
             height: root.font.pointSize * 3
             width: parent.width
             font.bold: true
@@ -336,14 +332,14 @@ Column {
             selectByMouse: true
             echoMode: showPassword.checked ? TextInput.Normal : TextInput.Password
             placeholderText: config.TranslatePlaceholderPassword || textConstants.password
-            placeholderTextColor: config.PlacholderTextColor
+            placeholderTextColor: config.PlaceholderTextColor
             horizontalAlignment: TextInput.AlignHCenter
             passwordCharacter: "•"
             passwordMaskDelay: config.HideCompletePassword == "true" ? undefined : 1000
             renderType: Text.QtRendering
             background: Rectangle {
-                color: config.PasswordFieldBackgroundColor
-                opacity: 0.2
+                color: config.TextFieldBackgroundColor
+                opacity: 0.3
                 border.color: "transparent"
                 border.width: parent.activeFocus ? 2 : 1
                 radius: config.RoundCorners || 0
@@ -362,7 +358,7 @@ Column {
                 }
                 PropertyChanges {
                     target: password
-                    color: Qt.lighter(config.LoginFieldTextColor, 1.15)
+                    color: Qt.lighter(config.BasicTextColor, 1.15)
                 }
             }
         ]
@@ -398,7 +394,7 @@ Column {
             contentItem: Text {
                 font.bold: true
                 text: parent.text
-                color: config.LoginButtonTextColor
+                color: config.BasicTextColor
                 font.pointSize: root.font.pointSize
                 font.family: root.font.family
                 horizontalAlignment: Text.AlignHCenter
@@ -409,7 +405,7 @@ Column {
             background: Rectangle {
                 id: buttonBackground
                 color: config.LoginButtonBackgroundColor
-                opacity: 0.2
+                opacity: 0.3
                 radius: config.RoundCorners || 0
             }
 

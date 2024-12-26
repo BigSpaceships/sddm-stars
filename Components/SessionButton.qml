@@ -56,7 +56,7 @@ Item {
                 text: model.name
                 font.pointSize: root.font.pointSize * 0.8
                 font.family: root.font.family
-                color: config.DropdownTextColor
+                color: config.BasicTextColor
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }
